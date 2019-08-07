@@ -1,0 +1,15 @@
+{
+  "name": "leewayweb/process-subscribers",
+  "description": "A script to move subscribers from one MailChimp audience to another",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "author's name",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "drewm/mailchimp-api": "v2.5.4"
+  }
+}
