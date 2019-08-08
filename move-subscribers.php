@@ -18,6 +18,8 @@ if (count($result['members'])) {
         ) == false) {
         echo 'Couldn\'t send email :(' . PHP_EOL;
     }
+} else {
+    echo 'No members to be moved found'.PHP_EOL;
 }
 
 foreach ($result['members'] as $memberData) {
