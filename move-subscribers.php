@@ -10,12 +10,14 @@ $MailChimp = new MailChimp($config['mailChimpAPI-Key']);
 
 $result = $MailChimp->get("lists/{$config['sourceListId']}/segments/{$config['sourceSegmentId']}/members");
 
-if ( mail(
-    $config['mailTo'],
-    'Hay suscriptores listos para pasar a la lista general',
-    "Se encontraron " . count($result['members']) . " listos para la lista general"
-) == false ) {
-    echo 'Couldn\'t send email :('.PHP_EOL;
+if (count($result['members'])) {
+    if (mail(
+            $config['mailTo'],
+            'Hay suscriptores listos para pasar a la lista general',
+            "Se encontraron " . count($result['members']) . " listos para la lista general"
+        ) == false) {
+        echo 'Couldn\'t send email :(' . PHP_EOL;
+    }
 }
 
 foreach ($result['members'] as $memberData) {
